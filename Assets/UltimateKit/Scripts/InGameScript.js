@@ -60,7 +60,7 @@ function Update()
 {	
 	if (!GameStarted)
 	{
-		//launchGame();
+		launchGame();
 	}
 
 	if (iMenuStatus == 0)	//normal gameplay

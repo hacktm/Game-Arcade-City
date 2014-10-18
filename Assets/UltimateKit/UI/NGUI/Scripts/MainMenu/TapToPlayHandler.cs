@@ -21,6 +21,7 @@ public class TapToPlayHandler : MonoBehaviour {
 
 	public void OnCardboardTrigger()
 	{
+		Debug.Log("START GAME");
 		OnClick ();
 	}
 
