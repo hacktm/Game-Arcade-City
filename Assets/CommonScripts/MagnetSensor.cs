@@ -5,7 +5,9 @@ public class MagnetSensor : MonoBehaviour
 {
 	public delegate void CardboardTrigger();
 	public static event CardboardTrigger OnCardboardTrigger;
-	
+
+
+	public GameObject[] Objects;
 	private const int WINDOW_SIZE = 40;
 	private const int NUM_SEGMENTS = 2;
 	private const int SEGMENT_SIZE = WINDOW_SIZE / NUM_SEGMENTS;
@@ -33,6 +35,10 @@ public class MagnetSensor : MonoBehaviour
 	
 	void Update ()
 	{
+		if (Input.GetKeyDown(KeyCode.A)){
+			sendMessage();
+		}
+
 		Vector3 currentVector = Input.compass.rawVector;
 		if(currentVector.x == 0 && currentVector.y == 0 && currentVector.z == 0) return;
 		
@@ -67,9 +73,17 @@ public class MagnetSensor : MonoBehaviour
 		
 		if(min1 < T1 && max2 > T2)
 		{
+			Debug.Log("--------------- sendMessage");
 			_sensorData.Clear();
+			sendMessage();
+		}
+	}
+
+	private void sendMessage(){
+		if (OnCardboardTrigger != null){
 			OnCardboardTrigger();
 		}
+		delegateToObjects();
 	}
 	
 	private float[] ComputeOffsets(int start, Vector3 baseline)
@@ -112,5 +126,14 @@ public class MagnetSensor : MonoBehaviour
 			min = Mathf.Min(o, min);
 		}
 		return min;
+	}
+
+	private void delegateToObjects(){
+		if (Objects != null && Objects.Length > 0){
+			foreach(GameObject go in Objects){
+				Debug.Log("--------------- OnCardboardTrigger");
+				go.SendMessage("OnCardboardTrigger");
+			}
+		}
 	}
 }

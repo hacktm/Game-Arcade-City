@@ -34,6 +34,7 @@ private var GameStarted : boolean = false;
 
 function Start()
 {
+	Screen.orientation = ScreenOrientation.Landscape;
 	//PlayerPrefs.DeleteAll();	//DEBUG
 	Application.targetFrameRate = 60;		//ceiling the frame rate on 60 (debug only)
 	
@@ -56,11 +57,20 @@ function Start()
 	bGamePaused = true;
 }//end of Start
 
+function OnCardboardTrigger()
+{
+	Debug.Log("--------------- OnCardboardTrigger");
+	if (!GameStarted)
+	{
+		launchGame();
+	}
+}
+
 function Update()
 {	
 	if (!GameStarted)
 	{
-		launchGame();
+	//	launchGame();
 	}
 
 	if (iMenuStatus == 0)	//normal gameplay
