@@ -15,8 +15,15 @@ public class TapToPlayHandler : MonoBehaviour {
 	{
 		hInGameScriptCS = (InGameScriptCS)GameObject.Find("Player").GetComponent(typeof(InGameScriptCS));
 		hNGUIMenuScript = (NGUIMenuScript)GameObject.Find("UI Root (2D)").GetComponent(typeof(NGUIMenuScript));
+
+		MagnetSensor.OnCardboardTrigger += OnCardboardTrigger;
 	}
-	
+
+	public void OnCardboardTrigger()
+	{
+		OnClick ();
+	}
+
 	void OnClick()
 	{
 		hInGameScriptCS.launchGame();	//start the gameplay
