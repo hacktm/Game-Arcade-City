@@ -5,7 +5,7 @@ public class MainMenuController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		Screen.orientation = ScreenOrientation.Portrait;
 	}
 	
 	// Update is called once per frame
@@ -20,5 +20,6 @@ public class MainMenuController : MonoBehaviour {
 
 	public void OnScanCode(){
 		Debug.Log("ON SCAN CODE");
+		Application.LoadLevel("ScanCode");
 	}
 }

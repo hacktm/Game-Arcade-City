@@ -10,6 +10,8 @@ public class GamesController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Screen.orientation = ScreenOrientation.Portrait;
+
 		Runner.interactable = isGameActivated("Runner");
 
 		Shooter.interactable = isGameActivated("Shooter");
