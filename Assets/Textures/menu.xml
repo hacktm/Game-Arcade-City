@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://www.codeandweb.com/texturepacker-->
+<!-- $TexturePacker:SmartUpdate:3660c211db10d99cbab3cd3b3396899a:56f996fd82b78e3a22028cb348ddf977:f377df62a31e1905f0a323c6fd91d4cd$ -->
+<!--Format:
+n  => name of the sprite
+x  => sprite x pos in texture
+y  => sprite y pos in texture
+w  => sprite width (may be trimmed)
+h  => sprite height (may be trimmed)
+pX => x pos of the pivot point (relative to sprite width)
+pY => y pos of the pivot point (relative to sprite height)
+oX => sprite's x-corner offset (only available if trimmed)
+oY => sprite's y-corner offset (only available if trimmed)
+oW => sprite's original width (only available if trimmed)
+oH => sprite's original height (only available if trimmed)
+r => 'y' only set if sprite is rotated
+-->
+<TextureAtlas imagePath="menu.png" width="512" height="1024">
+    <sprite n="achievements.png" x="2" y="2" w="450" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="games.png" x="2" y="84" w="250" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="leaderboard.png" x="2" y="166" w="450" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="logo.png" x="2" y="248" w="300" h="300" pX="0.5" pY="0.5"/>
+    <sprite n="map.png" x="304" y="248" w="150" h="80" pX="0.5" pY="0.5"/>
+    <sprite n="scan_code.png" x="2" y="550" w="350" h="80" pX="0.5" pY="0.5"/>
+</TextureAtlas>
