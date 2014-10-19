@@ -38,6 +38,7 @@ private var hPowerupsMainController : PowerupsMainController;
 private var hCheckPointsMain : CheckPointsMain;
 
 private var fDefaultIncrement : float = 0.05;//the default gap between obstacles
+private var fMultiLaneIncrement : float = 0.15; // gap between multilane obstacles
 private var iLastPowerupGenerated : int = 0;	//how many patches have been generated without a powerup
 private var iForcePowerupGeneration : int = 2;	//force powerup generation after how many patches
 private var bPowerupPlaced : boolean = false;	//force only a single powerup at a time
@@ -219,7 +220,7 @@ private function generateElements(elementNumber:int, fLocation:float, bStartPatc
 		CurrentAngle = -hCheckPointsMain.getWaypointAngle();
 		instantiateElement(elementNumber, v3Position, CurrentAngle, hitInfo.normal);
 		
-		fLocation = 0.05;
+		fLocation = fMultiLaneIncrement;;
 	}
 	
 	return fLocation;
