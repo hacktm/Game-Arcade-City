@@ -50,6 +50,8 @@ public class FighterSpwaner : MonoBehaviour
 						Destroy(exp, 2);
 							
 						Score.score++;
+
+						SpwanFighter();
 					}
 				}
 
