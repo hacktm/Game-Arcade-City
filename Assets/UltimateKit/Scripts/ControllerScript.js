@@ -111,12 +111,12 @@ private function getAccleration() { return 500; }	//accleration and deceleration
 private var fCurrentDistanceOnPath : float = 0.0;
 
 //switch between gyro and swipe controls
-private var swipeControlsEnabled : boolean = true;
+private var swipeControlsEnabled : boolean = false;
 public function isSwipeControlEnabled() { return swipeControlsEnabled; }
 
 public function toggleSwipeControls(state:boolean)
 {
-	swipeControlsEnabled = state;
+	swipeControlsEnabled = true;
 	
 	//permanently save user preference of controls
 	PlayerPrefs.SetInt("ControlsType", (state == true ? 1 : 0));
@@ -194,10 +194,10 @@ function Start()
 	fCurrentWalkSpeed = fStartingWalkSpeed;
 	
 	//get the type of controls (swipe or gyro) set by user
-	if (PlayerPrefs.HasKey("ControlsType"))
+	/*if (PlayerPrefs.HasKey("ControlsType"))
 		swipeControlsEnabled = PlayerPrefs.GetInt("ControlsType") == 1 ? true : false;
 	else
-		PlayerPrefs.SetInt("ControlsType", (swipeControlsEnabled == true ? 1 : 0));
+		PlayerPrefs.SetInt("ControlsType", (swipeControlsEnabled == true ? 1 : 0));*/
 	
 	//stop footsteps sound if playing
 	hSoundManager.stopSound(CharacterSounds.Footsteps);
@@ -600,6 +600,7 @@ public function processStumble()
 */
 private function getLeftRightInput()	//change lane
 {
+	Debug.Log("left right input controls enabled " + swipeControlsEnabled);
 	if (swipeControlsEnabled == true)//swipe direction
 		return iLanePosition;
 	else//gyro direction
