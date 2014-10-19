@@ -9,7 +9,7 @@ public class DiveController : MonoBehaviour {
 
 	public WebCamTexture CameraTexture;
 
-	public int WebCameraSizeDivider = 1;
+	public int WebCameraSizeDivider = 2;
 	// Use this for initialization
 	void Start () {
 		DiveSensor = CurrentDiveSensor;
@@ -44,7 +44,7 @@ public class DiveController : MonoBehaviour {
 			}
 		}
 		 
-		CameraTexture = new WebCamTexture(backCamName, Screen.width/2, Screen.height/2, 30);
+		CameraTexture = new WebCamTexture(backCamName, 320, 180, 30);
 		CameraTexture.Play();
 		BackgroundTexture.texture = CameraTexture;
 		
