@@ -31,7 +31,7 @@ public class DiveController : MonoBehaviour {
 		GUITexture BackgroundTexture = gameObject.AddComponent<GUITexture>();
 		int textureSizeX = Screen.width / WebCameraSizeDivider;
 		int textureSizeY = Screen.height / WebCameraSizeDivider;
-		BackgroundTexture.pixelInset = new Rect(0,0,textureSizeX, textureSizeY);
+		BackgroundTexture.pixelInset = new Rect(0,0,textureSizeX, textureSizeY * 1.5f);
 		//BackgroundTexture.transform.localScale = new Vector3(WebCameraSizeDivider, WebCameraSizeDivider, 1);
 		//set up camera
 		WebCamDevice[] devices = WebCamTexture.devices;
