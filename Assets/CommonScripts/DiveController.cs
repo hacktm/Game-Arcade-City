@@ -13,7 +13,6 @@ public class DiveController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		DiveSensor = CurrentDiveSensor;
-		MagnetSensor.OnCardboardTrigger += OnCardboardTrigger;
 		Initialize();
 	}
 	

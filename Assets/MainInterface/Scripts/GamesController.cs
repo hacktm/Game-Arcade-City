@@ -19,7 +19,9 @@ public class GamesController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (Input.GetKeyDown(KeyCode.Escape)){
+			Application.LoadLevel("MainMenu");
+		}
 	}
 
 	bool isGameActivated(string name){
@@ -30,6 +32,7 @@ public class GamesController : MonoBehaviour {
 	}
 
 	public void OnStartGame(string levelName){
+		Screen.orientation = ScreenOrientation.Landscape;
 		Application.LoadLevel(levelName);
 	}
 }
