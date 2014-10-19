@@ -608,9 +608,9 @@ private function getLeftRightInput()	//change lane
 		var fSign : float = 1.0;
 		
 		if(Screen.orientation == ScreenOrientation.Portrait)
-			fSign = 1.0;
-		else
 			fSign = -1.0;
+		else
+			fSign = 1.0;
 		
 		if(Application.isEditor)//map gyro controls on mouse in editor mode
 		{
@@ -618,7 +618,8 @@ private function getLeftRightInput()	//change lane
 		}
 		else
 		{
-			fMovement = (fSign * Input.acceleration.x * 4.5);
+			fMovement = (fSign *
+			 Input.acceleration.x * 4.5);
 		}
 		
 		return fMovement;
@@ -951,6 +952,18 @@ function duckPlayer()
 	
 	hMissionsController.incrementMissionCount(MissionTypes.Duck);//count ducks for mission script
 	hGlobalAchievementController.incrementAchievementCount(GlobalAchievementTypes.Duck);//count ducks for global achievements script
+}
+
+function OnCardboardTrigger()
+{
+	Debug.Log("--------------- OnCardboardTriggerCONTROLLER");
+	if(!bInAir)		//queue JUMP
+	{
+		bJumpFlag = true;			
+		bDirectionQueueFlag = false;
+	}
+	hPlayerFrontColliderScript.activateCollider();
+	hPlayerSidesColliderScript.activateCollider();
 }
 
 /*
