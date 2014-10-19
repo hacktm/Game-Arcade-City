@@ -32,26 +32,35 @@ public class FighterSpwaner : MonoBehaviour
 
 			List<Fighter> fightersToRemove = new List<Fighter>();
 
+			float time = Time.time;
 
 			foreach(PlayerLaser laser in lasers){
 				foreach(Fighter fighter in fighters1){
 					float dist = (laser.gameObject.transform.position - fighter.gameObject.transform.position).magnitude;
 
 					if (dist < 3.0f){
-						//fightersToRemove.Add(fighter);
-						//lasersToRemove.Remove(laser);
+						fightersToRemove.Add(fighter);
+						lasersToRemove.Remove(laser);
+
+					Score.score++;
 					}
 				}
+
+			float delta = time - laser.StartTime;
+			if (delta > 5){
+				lasersToRemove.Add(laser);
+			}
+				
 			}
 
 			foreach(PlayerLaser l in lasersToRemove){
-				//playerLasers.Remove(l);
-				//Destroy(l.gameObject);
+				playerLasers.Remove(l);
+				Destroy(l.gameObject);
 			}
 
 			foreach(Fighter f in fightersToRemove){
-				//fighters.Remove(f);
-				//Destroy(f.gameObject);
+				fighters.Remove(f);
+				Destroy(f.gameObject);
 			}
 
 		}

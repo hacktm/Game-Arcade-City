@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
 
 	void OnCardboardTrigger(){
 		GameObject go = (GameObject) Instantiate(laser, transform.position+transform.forward, transform.rotation);
-
-		Destroy(go, 5);
 	}
 }
 
