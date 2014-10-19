@@ -591,7 +591,7 @@ public function ShowMenu(index : int)
 /*
 *	FUNCTION: Send the menu away from the HUD Camera
 */
-private function CloseMenu(index : int)
+public function CloseMenu(index : int)
 {
 	if (index == MenuIDs.MainMenu)		
 		tMenuTransforms[MenuIDs.MainMenu].position.y = 1000;

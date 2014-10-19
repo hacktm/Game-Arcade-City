@@ -30,7 +30,7 @@ private var iMenuStatus : int;
 private var bGameOver : boolean = false;
 private var bGamePaused : boolean = false;
 
-private var GameStarted : boolean = false;
+public var GameStarted : boolean = false;
 
 function Start()
 {
@@ -62,17 +62,17 @@ function OnCardboardTrigger()
 	Debug.Log("--------------- OnCardboardTrigger");
 	if (!GameStarted)
 	{
+		hMenuScript.CloseMenu(MenuIDs.MainMenu);
 		launchGame();
+		hMenuScript.setMenuScriptStatus(false);
 	}
 }
 
 function Update()
-{	
-	if (!GameStarted)
-	{
-	//	launchGame();
+{
+	if (Input.GetKeyDown(KeyCode.Escape)) {
+		Application.LoadLevel(1);
 	}
-
 	if (iMenuStatus == 0)	//normal gameplay
 		;
 	else if (iMenuStatus == 1)//display main menu and pause game
@@ -113,6 +113,7 @@ function Update()
 	{	
 		hMenuScript.setMenuScriptStatus(true);
 		hMenuScript.displayGameOverMenu();	//display the Game Over menu
+		Application.LoadLevel(2);
 		
 		iDeathStatus = 0;
 	}
@@ -155,6 +156,8 @@ public function launchGame()
 	//count how many time the game has started
 	hMissionsController.incrementMissionCount(MissionTypes.StartGame);
 	hGlobalAchievementController.incrementAchievementCount(GlobalAchievementTypes.StartGame);
+	
+	//GameStarted = true;
 }
 
 /*
@@ -195,9 +198,9 @@ public function processClicksPauseMenu(index : PauseMenuEvents)
 public function procesClicksDeathMenu(index : GameOverMenuEvents)
 {
 	if (index == GameOverMenuEvents.Play)
-		Application.LoadLevel(0);
+		Application.LoadLevel(2);
 	else if (index == GameOverMenuEvents.Back)	
-		Application.LoadLevel(0);
+		Application.LoadLevel(2);
 }//end of DM_ProcessClicks
 
 /*

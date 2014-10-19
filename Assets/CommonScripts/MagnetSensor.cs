@@ -11,7 +11,7 @@ public class MagnetSensor : MonoBehaviour
 	private const int WINDOW_SIZE = 40;
 	private const int NUM_SEGMENTS = 2;
 	private const int SEGMENT_SIZE = WINDOW_SIZE / NUM_SEGMENTS;
-	private const int T1 = 30, T2 = 130;
+	private const int T1 = 13, T2 = 200;
 	
 	private List<Vector3> _sensorData;
 	private float[] _offsets;
