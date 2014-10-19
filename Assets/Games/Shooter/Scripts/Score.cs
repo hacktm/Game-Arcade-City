@@ -24,7 +24,7 @@ public class Score : MonoBehaviour
 	void Update ()
 	{
 		if (life <= 0){
-			// go to end game;
+			Application.LoadLevel("MainMenu");
 		}
 	}
 }
