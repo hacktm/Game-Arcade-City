@@ -51,6 +51,8 @@ public class Fighter : MonoBehaviour {
 
 	private void init()
 	{
+		gameObject.tag = "Fighter";
+
 		FireRate += Random.value * 2; 
 
 		target.x = Random.value * 5;
@@ -79,5 +81,8 @@ public class Fighter : MonoBehaviour {
 		Destroy(go, 5);
 	}
 
+	public void OnTriggerEnter(Collider  coll){
+		Debug.Log("TRIGGER WITH: "+coll.gameObject);
+	}
 
 }
