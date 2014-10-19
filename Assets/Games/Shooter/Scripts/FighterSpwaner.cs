@@ -5,12 +5,15 @@ public class FighterSpwaner : MonoBehaviour
 {
 		public GameObject FighterPrefab;
 
+		public GameObject Explosion;
+
 		public int NrOfFighters = 5;
 		
 		public static List<Fighter> fighters = new List<Fighter>();
 		
 		public static List<PlayerLaser> playerLasers = new List<PlayerLaser>();
 
+		
 		// Use this for initialization
 		void Start ()
 		{
@@ -42,7 +45,11 @@ public class FighterSpwaner : MonoBehaviour
 						fightersToRemove.Add(fighter);
 						lasersToRemove.Remove(laser);
 
-					Score.score++;
+						GameObject exp = (GameObject) Instantiate(Explosion, fighter.transform.position, Quaternion.identity);
+					    	
+						Destroy(exp, 2);
+							
+						Score.score++;
 					}
 				}
 
