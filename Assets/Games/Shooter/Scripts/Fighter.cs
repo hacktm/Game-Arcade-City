@@ -81,13 +81,8 @@ public class Fighter : MonoBehaviour {
 		Destroy(go, 5);
 	}
 
-	void OnCollisionEnter(Collision collision) {
-		Debug.Log("COLLIDE WITH: "+collision.gameObject);
+	public void OnTriggerEnter(Collider  coll){
+		Debug.Log("TRIGGER WITH: "+coll.gameObject);
 	}
-
-	void OnTriggerEnter(Collider other) {
-		Debug.Log("TRIGGER WITH: "+other.gameObject);
-	}
-
 
 }

@@ -11,6 +11,7 @@ public class PlayerLaser : MonoBehaviour
 	void Start ()
 	{
 		gameObject.tag = "PlayerLaser";
+		FighterSpwaner.playerLasers.Add(this);
 	}
 	
 	void Update ()
@@ -19,5 +20,6 @@ public class PlayerLaser : MonoBehaviour
 		transform.localPosition += transform.forward * Speed * Time.deltaTime;
 		
 	}
+
 }
 
