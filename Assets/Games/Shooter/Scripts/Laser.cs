@@ -18,7 +18,12 @@ public class Laser : MonoBehaviour
 		Vector3 direction = (Target - transform.localPosition);
 
 		if (direction.magnitude < 1){
-			Debug.Log("HIT HIT");
+
+			if (Random.value < 0.3f){
+				Score.life--;
+				Debug.Log("Life: "+Score.life);
+			}
+
 			Destroy(this.gameObject);
 		}
 
